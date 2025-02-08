@@ -1,9 +1,3 @@
-好的，以下是一个适合放在GitHub仓库中的 
-
-README.md
-
- 文件：
-
 # Chaotic Project
 
 ## 项目概述
