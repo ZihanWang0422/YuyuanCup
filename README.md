@@ -87,12 +87,7 @@ path_gen.c
 查看 `field.txt`, `findfinish.txt`, 和 `findtreasure.txt` 获取路径信息。
 
 ## 贡献
-欢迎提交问题和请求，也欢迎贡献代码。请遵循以下步骤：
-1. Fork 本仓库
-2. 创建一个新的分支 (`git checkout -b feature-branch`)
-3. 提交您的更改 (`git commit -am 'Add new feature'`)
-4. 推送到分支 (`git push origin feature-branch`)
-5. 创建一个新的 Pull Request
+Xuanlin Fan/Jiawei Zhang/Zihan Wang
 
 ## 许可证
 该项目使用 MIT 许可证。详细信息请参阅 LICENSE 文件。
