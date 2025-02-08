@@ -1,21 +1,105 @@
-<!-- LTeX: language=zh-CN -->
-# 浑元队芋圆杯项目
-## 前言
-## 内容
-## 目前进度
-chaoticvehicle文件夹是小车用的代码，platformio框架已经搭好
-chaoticlaptop文件夹是上位机使用的代码，使用start.py启动整个过程。  
-目前实装了：```start.py```一键运行从拍摄场地开始生成两条最短路径到```findtreasure.txt```（找宝藏）和```findfinish.txt```（从结束找终点），全程提示傻瓜操作。生成的路径对于每个格子的编号采取的是从0到80的顺序，转换成坐标也很容易。此外```start.py```留了一个调试窗口，可以选择现拍照片还是选取既有照片处理。
+好的，以下是一个适合放在GitHub仓库中的 
 
+README.md
 
-## to-do list
-### 上位机部分
-代码准确性有待测试。
-此后上位机部分的操作最好和小车方面配合完成，有了能自个儿动的车才好继续根据情况写代码。  
-## 开发环境
-PlatformIO.
-## 代码规范
-```json
- "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, BreakBeforeBraces: Linux, UseTab: Never, IndentWidth: 4, TabWidth: 4, AllowShortIfStatementsOnASingleLine: true, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4, NamespaceIndentation: All, FixNamespaceComments: false }",
-"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, BreakBeforeBraces: Linux, UseTab: Never, IndentWidth: 4, TabWidth: 4, AllowShortIfStatementsOnASingleLine: true, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4, NamespaceIndentation: All, FixNamespaceComments: false }",
+ 文件：
+
+# Chaotic Project
+
+## 项目概述
+该项目实现了图像处理和路径生成算法。通过捕捉和处理图像，将图像转换为文本格式，并使用Dijkstra算法生成最短路径。
+
+## 文件结构
+
 ```
+chaotic/
+├── .gitignore
+├── .vscode/
+│   ├── launch.json
+│   └── settings.json
+├── NetAssist.exe
+├── README.md
+├── chaoticCascade/
+│   ├── negadata.txt
+│   └── posdata.txt
+├── chaoticLaptop/
+│   └── test_path_gen.c
+├── chaoticTestIILaptop/
+│   └── test_path_gen.c
+├── chaoticTestLaptop/
+│   ├── color_detection.py
+│   ├── semi_automatic.py
+│   └── test_path_gen.c
+├── field.txt
+├── findfinish.txt
+├── findtreasure.txt
+├── path_gen.c
+├── path_gen.exe
+└── start.py
+```
+
+## 文件说明
+
+### 根目录
+- `.gitignore`：指定Git应忽略的文件和目录。
+- `.vscode/launch.json`：配置VS Code的调试器。
+- `.vscode/settings.json`：配置VS Code的用户设置和偏好。
+- `NetAssist.exe`：用于网络辅助的可执行文件。
+- `README.md`：项目的概述和使用说明。
+- `field.txt`：存储图像中的颜色信息，表示为文本格式。
+- `findfinish.txt`：存储从起点到终点的路径信息。
+- `findtreasure.txt`：存储从起点到宝藏点的路径信息。
+- `path_gen.c`：实现路径生成算法，使用Dijkstra算法在图像表示的图形中找到最短路径。
+- `path_gen.exe`：用于路径生成的可执行文件。
+- `start.py`：使用OpenCV库捕捉图像，并对图像进行处理和增强。
+
+### chaoticCascade 目录
+- `negadata.txt`：包含负样本图像的路径，用于图像处理和训练。
+- `posdata.txt`：包含正样本图像的路径，用于图像处理和训练。
+
+### chaoticLaptop 目录
+- `test_path_gen.c`：路径生成算法的测试代码，验证算法的正确性。
+
+### chaoticTestIILaptop 目录
+- `test_path_gen.c`：路径生成算法的测试代码，验证算法的正确性。
+
+### chaoticTestLaptop 目录
+- `color_detection.py`：包含颜色检测的函数。
+- `semi_automatic.py`：包含图像处理的辅助函数。
+- `test_path_gen.c`：路径生成算法的测试代码，验证算法的正确性。
+
+## 使用说明
+
+### 1. 运行 `start.py`
+捕捉和处理图像，将图像转换为文本格式，并生成 `field.txt` 文件。
+```bash
+python 
+
+start.py
+```
+
+### 2. 编译并运行 `path_gen.c`
+使用Dijkstra算法生成路径，并将路径信息分别存储在 `findfinish.txt` 和 `findtreasure.txt` 文件中。
+```bash
+gcc 
+
+path_gen.c
+
+ -o path_gen
+./path_gen
+```
+
+### 3. 查看路径信息
+查看 `field.txt`, `findfinish.txt`, 和 `findtreasure.txt` 获取路径信息。
+
+## 贡献
+欢迎提交问题和请求，也欢迎贡献代码。请遵循以下步骤：
+1. Fork 本仓库
+2. 创建一个新的分支 (`git checkout -b feature-branch`)
+3. 提交您的更改 (`git commit -am 'Add new feature'`)
+4. 推送到分支 (`git push origin feature-branch`)
+5. 创建一个新的 Pull Request
+
+## 许可证
+该项目使用 MIT 许可证。详细信息请参阅 LICENSE 文件。
+
